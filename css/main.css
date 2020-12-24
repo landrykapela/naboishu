@@ -1,0 +1,186 @@
+body {
+  color: #0a090c;
+  background-color: #f0edee;
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0 auto;
+}
+
+section {
+  text-align: center;
+}
+
+.dark-bg {
+  background-color: #0a090c;
+  color: #f0edee;
+}
+
+.bright-bg {
+  background-color: #f0edee;
+  color: #07393c;
+}
+
+.primary-text {
+  color: #07393c;
+}
+
+.accent-bg {
+  background-color: #90ddf0;
+  color: #0a090c;
+}
+
+.accent-text {
+  color: #90ddf0;
+}
+
+.logo-main {
+  width: 160px;
+  color: #07393c;
+  font-size: 2rem;
+}
+
+a:link,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  padding: 1em;
+  background-image: url("../images/building.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+header .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+  width: 100%;
+}
+
+header .banner {
+  width: 70%;
+  margin-top: 4em;
+  text-align: center;
+}
+
+header .search {
+  background-color: transparent;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  line-height: 1em;
+  color: #f0edee;
+  width: 50%;
+  border: 2px solid #f0edee;
+  font-size: medium;
+}
+
+header .search:focus {
+  outline: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: top;
+}
+
+nav .nav-item {
+  margin: 0.25em;
+  color: #f0edee;
+  cursor: pointer;
+}
+
+nav .nav-item:hover,
+nav .active {
+  border-bottom: 2px solid #90ddf0;
+  font-weight: bold;
+}
+
+button {
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.large-text {
+  font-size: 3rem;
+}
+
+.cookie-notification {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1em 0.5em;
+  animation: stretchUp 0.3s linear 1s 1 forwards;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto;
+  padding: 1em 0.5em;
+}
+
+.container > div:nth-child(2) {
+  flex-grow: 3;
+}
+
+.cards1,
+.cards2,
+.cards3 {
+  display: block;
+  height: 300px;
+  width: 300px;
+}
+
+.cards1:hover span,
+.cards2:hover span,
+.cards3:hover span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: #f0edeeda;
+  justify-content: center;
+  text-align: center;
+}
+
+.cards3 {
+  background-image: url("../images/valencia.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cards1 {
+  background-image: url("../images/paris.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cards2 {
+  background-image: url("../images/shipcruise.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes stretchUp {
+  from {
+    bottom: -5em;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
