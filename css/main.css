@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: #0a090c;
   background-color: #f0edee;
@@ -8,10 +12,16 @@ body {
 
 section {
   text-align: center;
+  padding: 1em 0.5em;
 }
 
 .dark-bg {
   background-color: #0a090c;
+  color: #f0edee;
+}
+
+.dark-bg-trans {
+  background-color: #07393cb0;
   color: #f0edee;
 }
 
@@ -57,14 +67,17 @@ header {
   height: 100vh;
 }
 
-header .top {
+header #top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: top;
   max-width: 1768px;
   flex-wrap: wrap;
-  width: 100%;
+  width: calc(100% - 2em);
+  position: fixed;
+  top: 0;
+  padding: 1em;
 }
 
 header .banner {
@@ -103,7 +116,7 @@ nav {
 }
 
 nav .nav-item {
-  margin: 0.25em;
+  margin: 0.25em 0.5em;
   color: #f0edee;
   cursor: pointer;
 }
@@ -118,6 +131,55 @@ button {
   border-radius: 25px;
   padding: 0.5em 1em;
   cursor: pointer;
+}
+
+#s-bookings {
+  background-color: #2c666e;
+  padding: 4em;
+  color: #f0edee;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.5em;
+}
+
+.form-control, textarea.form-control {
+  background-color: transparent;
+  border-radius: 25px;
+  padding: 0.5em 2em;
+  margin: 0.5em;
+  border: 1px solid #07393c;
+  width: 100%;
+}
+
+textarea.form-control {
+  border-radius: 2px;
+}
+
+.form-control:focus {
+  outline: none;
+}
+
+#booking-button,
+#send-button {
+  padding: 0.5em 4em;
+  border-radius: 25px;
+  background-color: #f0edee;
+  border: 2px solid #f0edee;
+  cursor: pointer;
+}
+
+#booking-button:hover,
+#send-button:hover {
+  background-color: #90ddf0;
+}
+
+img.feature {
+  width: 40%;
 }
 
 .large-text {
@@ -144,6 +206,16 @@ button {
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 1em 0.5em;
+}
+
+#s-bookings .container,
+#s-contacts .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1768px;
+  flex-wrap: wrap;
 }
 
 .cards1,

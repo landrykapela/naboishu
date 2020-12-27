@@ -17,7 +17,7 @@
   </head>
   <body>
     <header>
-      <div class="top">
+      <div id="top">
         <a href="index.html" class="logo-main">Naboishu</a>
         <nav>
           <span class="nav-item active" id="home">Home</span>
@@ -27,7 +27,7 @@
           <span class="nav-item" id="contacts">Contacts</span>
         </nav>
       </div>
-      <div class="banner">
+      <div class="banner" id="s-home">
         <p class="large-text accent-text">
           Pick a destination and let us give you the best travel experience
         </p>
@@ -40,7 +40,7 @@
         />
       </div>
     </header>
-    <section>
+    <section id="s-destinations">
       <p class="large-text">Exciting Destinations</p>
       <div class="container">
         <div class="cards1"><span>Paris</span></div>
@@ -55,6 +55,94 @@
         <div class="cards2"><span>Ship Cruise</span></div>
       </div>
     </section>
+    <section id="s-bookings">
+      <p class="large-text">Book your trip right away</p>
+      <div class="container">
+        <form id="booking-form">
+          <div class="form-group">
+            <label>Where are you travelling from?</label>
+            <select name="origin" id="origin" class="form-control">
+              <option>Select origin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Where do you want to go?</label>
+            <select name="destination" id="destination" class="form-control">
+              <option>Select destination</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              type="submit"
+              name="booking-button"
+              id="booking-button"
+              value="Search"
+            />
+          </div>
+        </form>
+        <img class="feature" src="images/aircraft.svg" alt="Travelers images" />
+      </div>
+    </section>
+    <section id="s-stories">
+      <p class="large-text">Other Travelers' Experience</p>
+      <div class="container">
+        <div class="cards1"><span>Paris</span></div>
+        <div class="cards2"><span>Ship Cruise</span></div>
+        <div class="cards3"><span>Valencia</span></div>
+        <div class="cards4"><span>Dar es Salaam</span></div>
+        <div class="cards3"><span>Valencia</span></div>
+        <div class="cards1"><span>Paris</span></div>
+        <div class="cards4">
+          <span>Dar es Salaam</span>
+        </div>
+        <div class="cards2"><span>Ship Cruise</span></div>
+      </div>
+    </section>
+    <section id="s-contacts" class="accent-bg">
+      <p class="large-text">Talk to our best customer care reps</p>
+      <div class="container">
+        <form id="booking-form">
+          <div class="form-group">
+            <!-- <label>Where are you travelling from?</label> -->
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              placeholder="Your name"
+            />
+          </div>
+          <div class="form-group">
+            <!-- <label>Where do you want to go?</label> -->
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="E-mail address"
+            />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea
+              rows="5"
+              class="form-control"
+              name="message"
+              id="message"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <input
+              type="submit"
+              name="send-button"
+              id="send-button"
+              value="Send"
+            />
+          </div>
+        </form>
+        <img class="feature" src="images/phone_call.svg" alt="contact us" />
+      </div>
+    </section>
     <div class="cookie-notification bright-bg">
       <p>
         This site collects and stores cookies as stated in our privacy policy.
@@ -65,5 +153,17 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+      window.addEventListener("scroll", () => {
+        // console.log("scrolling..." + window.scrollY);
+
+        const top = document.querySelector("#top");
+        if (window.scrollY > 50) {
+          top.classList.add("dark-bg-trans");
+        } else {
+          top.classList.remove("dark-bg-trans");
+        }
+      });
+    </script>
   </body>
 </html>

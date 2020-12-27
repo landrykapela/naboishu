@@ -1,6 +1,7 @@
 $dark: #0a090c;
 $bright: #f0edee;
 $primaryDark: #07393c;
+$primaryDarkTrans: #07393cb0;
 $primary: #2c666e;
 $accent: #90ddf0;
 $logoFontSize: 2rem;
@@ -33,6 +34,10 @@ $maxWidth: 1768px;
 @mixin stretchUp($height: 100px) {
   height: $height;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 body {
   color: $dark;
   background-color: $bright;
@@ -42,9 +47,14 @@ body {
 }
 section {
   text-align: center;
+  padding: 1em 0.5em;
 }
 .dark-bg {
   background-color: $dark;
+  color: $bright;
+}
+.dark-bg-trans {
+  background-color: $primaryDarkTrans;
   color: $bright;
 }
 .bright-bg {
@@ -80,9 +90,12 @@ header {
   background-repeat: no-repeat;
   height: 100vh;
 }
-header .top {
+header #top {
   @include flex(row, space-between, top);
-  width: 100%;
+  width: calc(100% - 2em);
+  position: fixed;
+  top: 0;
+  padding: 1em;
 }
 header .banner {
   width: 70%;
@@ -108,10 +121,9 @@ header .search:focus {
 }
 nav {
   @include flex(row, flex-end, top);
-  //   border: 2px solid white;
 }
 nav .nav-item {
-  margin: 0.25em;
+  margin: 0.25em 0.5em;
   color: $bright;
   cursor: pointer;
 }
@@ -124,6 +136,50 @@ button {
   border-radius: $borderRadius;
   padding: 0.5em 1em;
   cursor: pointer;
+}
+#s-bookings {
+  background-color: $primary;
+  padding: $largeMargin;
+  color: $bright;
+}
+
+.form-group {
+  @include flex(column, center, flex-start);
+  padding: $smallMargin;
+}
+.form-control {
+  background-color: transparent;
+  border-radius: $borderRadius;
+  padding: $smallMargin $mediumMargin;
+  margin: $smallMargin;
+  border: 1px solid $primaryDark;
+  width: 100%;
+}
+textarea.form-control {
+  @extend .form-control;
+  border-radius: 2px;
+}
+.form-control:focus {
+  outline: none;
+}
+#booking-button,
+#send-button {
+  padding: $smallMargin $largeMargin;
+  border-radius: $borderRadius;
+  background-color: $bright;
+  border: 2px solid $bright;
+  cursor: pointer;
+}
+#booking-button:hover,
+#send-button:hover {
+  background-color: $accent;
+}
+// #send-button:hover {
+//   background-color: $primary;
+//   border: 2px solid $primaryDark;
+// }
+img.feature {
+  width: 40%;
 }
 .large-text {
   font-size: $largeText;
@@ -142,6 +198,10 @@ button {
   @include flex(row, center, stretch);
   margin: 0 auto;
   padding: 1em 0.5em;
+}
+#s-bookings .container,
+#s-contacts .container {
+  @include flex(row, space-evenly, center);
 }
 // .container > div:nth-child(2) {
 //   flex-grow: 3;
