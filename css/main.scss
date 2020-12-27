@@ -13,17 +13,25 @@ $stdMargin: 1em;
 $smallMargin: 0.5em;
 $font: "Montserrat", sans-serif;
 $borderRadius: 25px;
+$maxWidth: 1768px;
 
 @mixin flex($direction: row, $jc: center, $ai: center) {
   display: flex;
   flex-direction: $direction;
   justify-content: $jc;
   align-items: $ai;
+  @if $direction == row {
+    max-width: $maxWidth;
+    flex-wrap: wrap;
+  }
 }
 @mixin setBg($resource: "building.jpg") {
   background-image: url("../images/" + $resource);
   background-size: cover;
   background-repeat: no-repeat;
+}
+@mixin stretchUp($height: 100px) {
+  height: $height;
 }
 body {
   color: $dark;
@@ -56,7 +64,7 @@ section {
 
 .logo-main {
   width: 160px;
-  color: $primaryDark;
+  color: $bright;
   font-size: $logoFontSize;
 }
 a:link,
@@ -90,6 +98,10 @@ header .search {
   width: 50%;
   border: 2px solid $bright;
   font-size: medium;
+  text-align: center;
+}
+header .search::placeholder {
+  color: $bright;
 }
 header .search:focus {
   outline: none;
@@ -119,36 +131,51 @@ button {
 .cookie-notification {
   position: fixed;
   bottom: 0;
+  height: 0;
+  max-height: 100px;
   width: 100%;
   text-align: center;
   padding: 1em 0.5em;
-  animation: stretchUp 0.3s linear 1s 1 forwards;
+  animation: stretchUp 0.3s linear 2s 1 forwards;
 }
 .container {
   @include flex(row, center, stretch);
   margin: 0 auto;
   padding: 1em 0.5em;
 }
-.container > div:nth-child(2) {
-  flex-grow: 3;
-}
+// .container > div:nth-child(2) {
+//   flex-grow: 3;
+// }
 .cards1,
 .cards2,
-.cards3 {
-  display: block;
+.cards3,
+.cards4 {
+  @include flex(column, center, center);
   height: 300px;
   width: 300px;
+  cursor: pointer;
 }
-
+.cards1 span,
+.cards2 span,
+.cards3 span,
+.cards4 span {
+  display: none;
+  height: 0;
+}
 .cards1:hover span,
 .cards2:hover span,
-.cards3:hover span {
-  display: block;
+.cards3:hover span,
+.cards4:hover span {
+  @include flex(column, center, center);
   height: 100%;
   width: 100%;
-  background-color: #f0edeeda;
-  justify-content: center;
-  text-align: center;
+  background-color: #050505b9;
+  animation: stretchUp 0.3s linear 0s 1;
+  font-size: large;
+  color: $bright;
+}
+.cards4 {
+  @include setBg("dsm.jpg");
 }
 .cards3 {
   @include setBg("valencia.jpg");
@@ -161,9 +188,9 @@ button {
 }
 @keyframes stretchUp {
   from {
-    bottom: -5em;
+    height: 0;
   }
   to {
-    bottom: 0;
+    height: 100%;
   }
 }
