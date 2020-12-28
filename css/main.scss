@@ -64,6 +64,9 @@ section {
 .primary-text {
   color: $primaryDark;
 }
+.bright-text {
+  color: $bright;
+}
 .accent-bg {
   background-color: $accent;
   color: $dark;
@@ -137,6 +140,25 @@ button {
   padding: 0.5em 1em;
   cursor: pointer;
 }
+footer {
+  @include flex(row, space-evenly, flex-start);
+  background-color: $dark;
+  margin: 0 auto;
+  padding: $mediumMargin $largeMargin;
+  color: $bright;
+}
+footer div.navigation {
+  @include flex(column, flex-start, flex-start);
+}
+footer a:link,
+footer a:active,
+footer a:visited {
+  color: $bright;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
 #s-bookings {
   background-color: $primary;
   padding: $largeMargin;
@@ -184,6 +206,24 @@ img.feature {
 .large-text {
   font-size: $largeText;
 }
+.medium-text {
+  font-size: $mediumText;
+}
+.small-text {
+  font-size: $smallText;
+}
+.stories {
+  @include flex(row, flex-start, flex-start);
+}
+.stories > div {
+  text-align: left;
+}
+.stories div > p:nth-child(1) {
+  font-style: italic;
+}
+.stories div > p:nth-child(2) {
+  font-weight: bold;
+}
 .cookie-notification {
   position: fixed;
   bottom: 0;
@@ -202,6 +242,9 @@ img.feature {
 #s-bookings .container,
 #s-contacts .container {
   @include flex(row, space-evenly, center);
+}
+#s-stories .container {
+  @include flex(row, space-evenly, flex-start);
 }
 // .container > div:nth-child(2) {
 //   flex-grow: 3;
@@ -234,11 +277,17 @@ img.feature {
   font-size: large;
   color: $bright;
 }
+.avatar {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  margin: $smallMargin;
+}
 .cards4 {
   @include setBg("dsm.jpg");
 }
 .cards3 {
-  @include setBg("valencia.jpg");
+  @include setBg("madrid.jpg");
 }
 .cards1 {
   @include setBg("paris.jpg");

@@ -21,14 +21,14 @@
         <a href="index.html" class="logo-main">Naboishu</a>
         <nav>
           <span class="nav-item active" id="home">Home</span>
-          <span class="nav-item" id="bookings">Bookings</span>
           <span class="nav-item" id="destinations">Destinations</span>
+          <span class="nav-item" id="bookings">Bookings</span>
           <span class="nav-item" id="stories">Stories</span>
           <span class="nav-item" id="contacts">Contacts</span>
         </nav>
       </div>
       <div class="banner" id="s-home">
-        <p class="large-text accent-text">
+        <p class="large-text bright-text">
           Pick a destination and let us give you the best travel experience
         </p>
         <input
@@ -45,9 +45,13 @@
       <div class="container">
         <div class="cards1"><span>Paris</span></div>
         <div class="cards2"><span>Ship Cruise</span></div>
-        <div class="cards3"><span>Valencia</span></div>
+        <div class="cards3">
+          <span>Madrid</span><span>Photo by Alex Azabache from Pexels</span>
+        </div>
         <div class="cards4"><span>Dar es Salaam</span></div>
-        <div class="cards3"><span>Valencia</span></div>
+        <div class="cards3">
+          <span>Madrid</span><span>Photo by Alex Azabache from Pexels</span>
+        </div>
         <div class="cards1"><span>Paris</span></div>
         <div class="cards4">
           <span>Dar es Salaam</span>
@@ -86,16 +90,34 @@
     <section id="s-stories">
       <p class="large-text">Other Travelers' Experience</p>
       <div class="container">
-        <div class="cards1"><span>Paris</span></div>
-        <div class="cards2"><span>Ship Cruise</span></div>
-        <div class="cards3"><span>Valencia</span></div>
-        <div class="cards4"><span>Dar es Salaam</span></div>
-        <div class="cards3"><span>Valencia</span></div>
-        <div class="cards1"><span>Paris</span></div>
-        <div class="cards4">
-          <span>Dar es Salaam</span>
+        <div class="stories">
+          <img class="avatar" src="images/avatar.jpg" alt="user avatar" />
+          <div>
+            <p>I had the best holiday of my life last summer</p>
+            <p class="smal-text">Traveler Zero, Manila</p>
+          </div>
         </div>
-        <div class="cards2"><span>Ship Cruise</span></div>
+        <div class="stories">
+          <img class="avatar" src="images/avatar.jpg" alt="user avatar" />
+          <div>
+            <p>I had the best holiday of my life last summer</p>
+            <p class="smal-text">Traveler One, Johannesburg</p>
+          </div>
+        </div>
+        <div class="stories">
+          <img class="avatar" src="images/avatar.jpg" alt="user avatar" />
+          <div>
+            <p>I had the best holiday of my life last summer</p>
+            <p class="smal-text">Traveler Two, Qatar</p>
+          </div>
+        </div>
+        <div class="stories">
+          <img class="avatar" src="images/avatar.jpg" alt="user avatar" />
+          <div>
+            <p>I had the best holiday of my life last summer</p>
+            <p class="smal-text">Traveler Three, Dar es Salaam</p>
+          </div>
+        </div>
       </div>
     </section>
     <section id="s-contacts" class="accent-bg">
@@ -143,6 +165,39 @@
         <img class="feature" src="images/phone_call.svg" alt="contact us" />
       </div>
     </section>
+    <footer>
+      <div class="navigation">
+        <p>DESTINATIONS</p>
+        <a href="destinations/africa">Africa</a>
+        <a href="destinations/antarctica">Antarctica</a>
+        <a href="destinations/asia">Asia</a>
+        <a href="destinations/europe">Europe</a>
+        <a href="destinations/north-america">North America</a>
+        <a href="destinations/south-america">South America</a>
+      </div>
+      <div class="navigation">
+        <p>BOOKING</p>
+        <a href="destinations/africa">Flights</a>
+        <a href="destinations/antarctica">Hotels</a>
+        <a href="destinations/asia">Tours & Safaris</a>
+      </div>
+      <div class="navigation">
+        <p>OTHER LINKS</p>
+        <a href="https://immigration.go.tz">Immigration</a>
+        <a href="https://tanzaniaparks.go.tz">National Parks</a>
+        <a href="https://tanzaniatouristsboard.go.tz">Tanzania Tourist Board</a>
+      </div>
+      <div class="navigation">
+        <p>CONTACTS</p>
+        <span>Naboishu Travel and Tours Ltd</span>
+        <span>123 ABC Street, Dar es Salaam</span>
+        <span>Tanzania, East Africa</span>
+        <span>
+          Designed and maintained by
+          <a href="https://neelansoft.co.tz">Neelansoft Technologies</a>
+        </span>
+      </div>
+    </footer>
     <div class="cookie-notification bright-bg">
       <p>
         This site collects and stores cookies as stated in our privacy policy.
@@ -153,17 +208,6 @@
     </div>
 
     <script src="js/main.js"></script>
-    <script>
-      window.addEventListener("scroll", () => {
-        // console.log("scrolling..." + window.scrollY);
-
-        const top = document.querySelector("#top");
-        if (window.scrollY > 50) {
-          top.classList.add("dark-bg-trans");
-        } else {
-          top.classList.remove("dark-bg-trans");
-        }
-      });
-    </script>
+    <script></script>
   </body>
 </html>
