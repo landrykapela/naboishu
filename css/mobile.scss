@@ -282,7 +282,7 @@
   .cards4 {
     @include flex(column, center, center);
     height: 200px;
-    width: 90%;
+    width: 200px;
     cursor: pointer;
   }
   .cards1 span,
