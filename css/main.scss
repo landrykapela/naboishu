@@ -86,7 +86,7 @@ a:visited {
   text-decoration: none;
 }
 header {
-  @include flex(column, top, center);
+  @include flex(column, flex-start, center);
   padding: 1em;
   background-image: url("../images/building.jpg");
   background-size: cover;
@@ -94,7 +94,7 @@ header {
   height: 100vh;
 }
 header #top {
-  @include flex(row, space-between, top);
+  @include flex(row, space-between, flex-start);
   width: calc(100% - 2em);
   position: fixed;
   top: 0;
@@ -123,7 +123,7 @@ header .search:focus {
   outline: none;
 }
 nav {
-  @include flex(row, flex-end, top);
+  @include flex(row, flex-end, flex-start);
 }
 nav .nav-item {
   margin: 0.25em 0.5em;
@@ -189,7 +189,7 @@ textarea.form-control {
   padding: $smallMargin $largeMargin;
   border-radius: $borderRadius;
   background-color: $bright;
-  border: 2px solid $bright;
+  border: 0px solid $primary;
   cursor: pointer;
 }
 #booking-button:hover,
@@ -214,6 +214,7 @@ img.feature {
 }
 .stories {
   @include flex(row, flex-start, flex-start);
+  margin-bottom: $smallMargin;
 }
 .stories > div {
   text-align: left;
@@ -242,6 +243,7 @@ img.feature {
 #s-bookings .container,
 #s-contacts .container {
   @include flex(row, space-evenly, center);
+  padding: $largeMargin $smallMargin;
 }
 #s-stories .container {
   @include flex(row, space-evenly, flex-start);
