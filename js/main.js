@@ -6,6 +6,7 @@ if (dismissCookie) {
     parent.style.display = "none";
   });
 }
+
 //sections
 const sections = document.getElementsByTagName("section");
 //navigation menus
@@ -49,13 +50,24 @@ const isInViewport = (element) => {
     x2 < 0 ||
     y2 < 0
   );
-  // return (
-  //   rect.top >= 0 &&
-  //   rect.left >= 0 &&
-  //   rect.bottom <=
-  //     (window.innerHeight || document.documentElement.clientHeight) &&
-  //   rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  // );
+};
+
+//menu button
+const menuButton = document.querySelector("#menu");
+if (menuButton) {
+  menuButton.addEventListener("click", (e) => {
+    showMenu(menuButton);
+  });
+}
+
+const showMenu = (menu) => {
+  if (menu.firstChild.textContent === "menu") {
+    nav.classList.add("stretchable");
+    menu.firstChild.textContent = "close";
+  } else {
+    nav.classList.remove("stretchable");
+    menu.firstChild.textContent = "menu";
+  }
 };
 window.addEventListener("scroll", () => {
   // console.log("scrolling..." + window.scrollY);

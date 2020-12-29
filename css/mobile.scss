@@ -84,20 +84,24 @@
     text-decoration: none;
   }
   header {
-    @include flex(column, flex-start, center);
-    padding: 1em;
+    @include flex(column, center, center);
+    padding: 0;
+    margin: 0;
     background-image: url("../images/building.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    width: calc(100% - 4em);
+    width: 100%;
     overflow-x: hidden;
   }
   header #top {
     @include flex(row, space-between, center);
-    width: calc(100% - 5em);
+    // width: calc(100% - 2em);
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
     padding: 1em;
   }
   header .banner {
@@ -123,16 +127,22 @@
     outline: none;
   }
   nav {
-    // @include flex(column, flex-end, flex-start);
+    @include flex(column, flex-end, flex-start);
     background-color: $dark;
-    width: 80%;
-    display: none;
+    width: calc(100% + 2em);
+    height: 0;
+    padding-top: 2em;
+    margin-top: -10em;
+    z-index: -9999;
+  }
+  nav.stretchable {
+    animation: stretchDown 0.3s linear forwards;
   }
   nav .nav-item {
-    margin: 0.25em 0.5em;
+    padding: 0.5em 0.75em;
     color: $bright;
     cursor: pointer;
-    width: 100%;
+    width: calc(100% - 1.5em);
   }
   nav .nav-item:hover,
   nav .active {
@@ -147,10 +157,10 @@
     cursor: pointer;
   }
   footer {
-    @include flex(row, space-evenly, flex-start);
+    @include flex(column, flex-start, flex-start);
     background-color: $dark;
     margin: 0 auto;
-    padding: $mediumMargin $largeMargin;
+    padding: $smallMargin $mediumMargin;
     color: $bright;
   }
   footer div.navigation {
@@ -172,7 +182,7 @@
   }
 
   .form-group {
-    @include flex(column, center, flex-start);
+    @include flex(column, center, center);
     padding: $smallMargin;
   }
   .form-control {
@@ -180,8 +190,9 @@
     border-radius: $borderRadius;
     padding: $smallMargin $mediumMargin;
     margin: $smallMargin;
-    border: 1px solid $primaryDark;
+    border: 1px solid $bright;
     width: 100%;
+    text-align: center;
   }
   textarea.form-control {
     @extend .form-control;
@@ -220,24 +231,25 @@
     font-size: $smallText;
   }
   .stories {
-    @include flex(row, flex-start, flex-start);
+    @include flex(row, center, center);
     margin-bottom: $smallMargin;
   }
   .stories > div {
-    text-align: left;
+    text-align: center;
   }
   .stories div > p:nth-child(1) {
     font-style: italic;
   }
   .stories div > p:nth-child(2) {
     font-weight: bold;
+    font-size: small;
   }
   .cookie-notification {
     position: fixed;
     bottom: 0;
     height: 0;
     max-height: 200px;
-    width: calc(100% - 2em);
+    width: calc(100% - 1em);
     text-align: center;
     padding: 1em 0.5em;
     animation: stretchUp 0.3s linear 2s 1 forwards;
@@ -269,8 +281,8 @@
   .cards3,
   .cards4 {
     @include flex(column, center, center);
-    height: 180px;
-    width: 180px;
+    height: 200px;
+    width: 90%;
     cursor: pointer;
   }
   .cards1 span,
@@ -316,6 +328,16 @@
     }
     to {
       height: 100%;
+    }
+  }
+  @keyframes stretchDown {
+    from {
+      height: 0;
+      margin-top: -10em;
+    }
+    to {
+      height: 160px;
+      margin-top: 0em;
     }
   }
 }

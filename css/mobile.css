@@ -58,14 +58,15 @@ a:visited {
   header {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding: 1em;
+    padding: 0;
+    margin: 0;
     background-image: url("../images/building.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    width: calc(100% - 4em);
+    width: 100%;
     overflow-x: hidden;
   }
 
@@ -76,9 +77,11 @@ a:visited {
     align-items: center;
     max-width: 768px;
     flex-wrap: wrap;
-    width: calc(100% - 5em);
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
     padding: 1em;
   }
 
@@ -109,16 +112,27 @@ a:visited {
   }
 
   nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     background-color: #0a090c;
-    width: 80%;
-    display: none;
+    width: calc(100% + 2em);
+    height: 0;
+    padding-top: 2em;
+    margin-top: -10em;
+    z-index: -9999;
+  }
+
+  nav.stretchable {
+    animation: stretchDown 0.3s linear forwards;
   }
 
   nav .nav-item {
-    margin: 0.25em 0.5em;
+    padding: 0.5em 0.75em;
     color: #f0edee;
     cursor: pointer;
-    width: 100%;
+    width: calc(100% - 1.5em);
   }
 
   nav .nav-item:hover,
@@ -137,14 +151,12 @@ nav .active {
 
   footer {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
-    max-width: 768px;
-    flex-wrap: wrap;
     background-color: #0a090c;
     margin: 0 auto;
-    padding: 1.5em 2em;
+    padding: 0.5em 1.5em;
     color: #f0edee;
   }
 
@@ -176,7 +188,7 @@ footer a:visited {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 0.5em;
   }
 
@@ -185,8 +197,9 @@ footer a:visited {
     border-radius: 25px;
     padding: 0.5em 1.5em;
     margin: 0.5em;
-    border: 1px solid #07393c;
+    border: 1px solid #f0edee;
     width: 100%;
+    text-align: center;
   }
 
   textarea.form-control {
@@ -231,15 +244,15 @@ footer a:visited {
   .stories {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     max-width: 768px;
     flex-wrap: wrap;
     margin-bottom: 0.5em;
   }
 
   .stories > div {
-    text-align: left;
+    text-align: center;
   }
 
   .stories div > p:nth-child(1) {
@@ -248,6 +261,7 @@ footer a:visited {
 
   .stories div > p:nth-child(2) {
     font-weight: bold;
+    font-size: small;
   }
 
   .cookie-notification {
@@ -255,7 +269,7 @@ footer a:visited {
     bottom: 0;
     height: 0;
     max-height: 200px;
-    width: calc(100% - 2em);
+    width: calc(100% - 1em);
     text-align: center;
     padding: 1em 0.5em;
     animation: stretchUp 0.3s linear 2s 1 forwards;
@@ -306,8 +320,8 @@ footer a:visited {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 180px;
-    width: 180px;
+    height: 200px;
+    width: 90%;
     cursor: pointer;
   }
 
@@ -372,6 +386,16 @@ footer a:visited {
     }
     to {
       height: 100%;
+    }
+  }
+  @keyframes stretchDown {
+    from {
+      height: 0;
+      margin-top: -10em;
+    }
+    to {
+      height: 160px;
+      margin-top: 0em;
     }
   }
 }
