@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Naboishu Travel and Tours</title>
     <meta
@@ -8,6 +8,7 @@
     />
     <meta name="author" content="Landry Kapela" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/mobile.css" />
     <link rel="stylesheet" href="css/medium.css" />
@@ -24,7 +25,12 @@
   <body>
     <header>
       <div id="top">
-        <a href="index.html" class="logo-main">Naboishu</a>
+        <a href="index.html"
+          ><img
+            class="logo-main"
+            src="images/logo-main.png"
+            alt="Naboishu logo"
+        /></a>
         <span id="menu"><i class="material-icons bright-text">menu</i></span>
         <nav id="top-nav">
           <span class="nav-item active" id="home">Home</span>
@@ -38,17 +44,24 @@
         <p class="large-text bright-text">
           Pick a destination and let us give you the best travel experience
         </p>
-        <input
-          class="search"
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Search Destination"
-        />
+        <form>
+          <div class="search-container">
+            <input
+              class="search"
+              type="text"
+              name="search"
+              id="search"
+              placeholder="search a destination"
+            />
+            <button type="submit" id="icon-search" name="icon-search">
+              <i class="material-icons accent-text">search</i>
+            </button>
+          </div>
+        </form>
       </div>
     </header>
     <section id="s-destinations">
-      <p class="large-text">Exciting Destinations</p>
+      <h2 class="large-text">Exciting Destinations</h2>
       <div class="container">
         <div class="cards1"><span>Paris</span></div>
         <div class="cards2"><span>Ship Cruise</span></div>
@@ -67,19 +80,39 @@
       </div>
     </section>
     <section id="s-bookings">
-      <p class="large-text">Book your trip right away</p>
+      <h2 class="large-text">Book your trip right away</h2>
       <div class="container">
         <form id="booking-form">
           <div class="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="full_name"
+              id="full_name"
+              class="form-control"
+              placeholder="Full name..."
+            />
+          </div>
+          <div class="form-group">
             <label>Where are you travelling from?</label>
             <select name="origin" id="origin" class="form-control">
-              <option>Select origin</option>
+              <option>Select Country</option>
+            </select>
+            <select name="c_origin" id="c_origin" class="form-control">
+              <option>Select city</option>
             </select>
           </div>
           <div class="form-group">
             <label>Where do you want to go?</label>
             <select name="destination" id="destination" class="form-control">
-              <option>Select destination</option>
+              <option>Select Country</option>
+            </select>
+            <select
+              name="c_destination"
+              id="c_destination"
+              class="form-control"
+            >
+              <option>Select city</option>
             </select>
           </div>
           <div class="form-group">
@@ -87,7 +120,7 @@
               type="submit"
               name="booking-button"
               id="booking-button"
-              value="Search"
+              value="Book Now"
             />
           </div>
         </form>
@@ -95,7 +128,7 @@
       </div>
     </section>
     <section id="s-stories">
-      <p class="large-text">Other Travelers' Experience</p>
+      <h2 class="large-text">Other Travelers' Experience</h2>
       <div class="container">
         <div class="stories">
           <img class="avatar" src="images/avatar.jpg" alt="user avatar" />
@@ -128,7 +161,7 @@
       </div>
     </section>
     <section id="s-contacts" class="dark-bg">
-      <p class="large-text">Talk to our best customer care reps</p>
+      <h2 class="large-text">Talk to our best customer care reps</h2>
       <div class="container">
         <form id="contact-form">
           <div class="form-group">
@@ -193,15 +226,20 @@
         <a href="https://immigration.go.tz">Immigration</a>
         <a href="https://tanzaniaparks.go.tz">National Parks</a>
         <a href="https://tanzaniatouristsboard.go.tz">Tanzania Tourist Board</a>
+        <a href="https://naboishutravel.co.tz/webmail" target="_blank"
+          >Staff E-mails</a
+        >
       </div>
       <div class="navigation">
         <p>CONTACTS</p>
         <span>Naboishu Travel and Tours Ltd</span>
-        <span>123 ABC Street, Dar es Salaam</span>
+        <span>Tabata, Dar es Salaam</span>
         <span>Tanzania, East Africa</span>
         <span>
           Designed and maintained by
-          <a href="https://neelansoft.co.tz">Neelansoft Technologies</a>
+          <a href="https://neelansoft.co.tz" target="_blank"
+            >Neelansoft Technologies</a
+          >
         </span>
       </div>
     </footer>
@@ -215,6 +253,6 @@
     </div>
 
     <script src="js/main.js"></script>
-    <script></script>
+    <script src="js/data.js"></script>
   </body>
 </html>

@@ -11,6 +11,10 @@
     margin: 0 auto;
   }
 
+  #menu {
+    display: none;
+  }
+
   section {
     text-align: center;
     padding: 1em 0.5em;

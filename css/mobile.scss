@@ -1,10 +1,10 @@
 @media only screen and (max-width: 768px) {
-  $dark: #0a090c;
+  $dark: #222222;
   $bright: #f0edee;
   $primaryDark: #07393c;
   $primaryDarkTrans: #07393cb0;
   $primary: #2c666e;
-  $accent: #90ddf0;
+  $accent: #ffba48;
   $logoFontSize: 1rem;
   $largeText: 2rem;
   $mediumText: 1.5rem;
@@ -16,6 +16,7 @@
   $font: "Montserrat", sans-serif;
   $borderRadius: 25px;
   $maxWidth: 768px;
+  $logoSize: 220px;
 
   @mixin flex($direction: row, $jc: center, $ai: center) {
     display: flex;
@@ -74,9 +75,9 @@
   }
 
   .logo-main {
-    width: 160px;
-    color: $bright;
-    font-size: $logoFontSize;
+    width: $logoSize;
+    // color: $bright;
+    // font-size: $logoFontSize;
   }
   a:link,
   a:hover,
