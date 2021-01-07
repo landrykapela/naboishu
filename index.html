@@ -82,7 +82,7 @@
     <section id="s-bookings">
       <h2 class="large-text">Book your trip right away</h2>
       <div class="container">
-        <form id="booking-form">
+        <form id="booking-form" action="admin/send_email.php" method="POST">
           <div class="form-group">
             <label>Full Name</label>
             <input
@@ -91,6 +91,26 @@
               id="full_name"
               class="form-control"
               placeholder="Full name..."
+            />
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="E-mail..."
+            />
+          </div>
+          <div class="form-group">
+            <label>Travel Date</label>
+            <input
+              type="date"
+              name="travel_date"
+              id="travel_date"
+              class="form-control"
+              placeholder="Enter date of travel"
             />
           </div>
           <div class="form-group">

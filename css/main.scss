@@ -99,6 +99,7 @@
   a:visited {
     text-decoration: none;
   }
+
   header {
     @include flex(column, center, center);
     padding: 1em;
@@ -154,6 +155,19 @@
   }
   header .search:focus {
     outline: none;
+  }
+  .mail {
+    @include flex(row, space-between, center);
+    background-color: $dark;
+  }
+  .mail main {
+    padding: $smallMargin $mediumMargin;
+    background-color: $bright;
+    height: 100vh;
+  }
+  .mail .signature {
+    margin-top: $largeMargin;
+    font-weight: bold;
   }
   nav {
     @include flex(row, flex-end, flex-start);
@@ -289,6 +303,9 @@
     @include flex(row, center, stretch);
     margin: 0 auto;
     padding: 1em 0.5em;
+  }
+  #s-bookings .form-control::placeholder {
+    color: black;
   }
   #s-bookings .container,
   #s-contacts .container {

@@ -150,6 +150,27 @@ header .search {
     outline: none;
   }
 
+  .mail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1768px;
+    flex-wrap: wrap;
+    background-color: #222222;
+  }
+
+  .mail main {
+    padding: 0.5em 2em;
+    background-color: #f0edee;
+    height: 100vh;
+  }
+
+  .mail .signature {
+    margin-top: 4em;
+    font-weight: bold;
+  }
+
   nav {
     display: flex;
     flex-direction: row;
@@ -329,6 +350,10 @@ footer a:visited {
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 1em 0.5em;
+  }
+
+  #s-bookings .form-control::placeholder {
+    color: black;
   }
 
   #s-bookings .container,
