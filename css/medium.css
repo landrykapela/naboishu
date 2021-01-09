@@ -4,7 +4,7 @@
   }
 
   body {
-    color: #0a090c;
+    color: #222222;
     background-color: #f0edee;
     font-family: "Montserrat", sans-serif;
     padding: 0;
@@ -20,13 +20,22 @@
     padding: 1em 0.5em;
   }
 
+  h1,
+h2,
+h3,
+h4,
+h5,
+h5 {
+    font-family: "Poppins", sans-serif;
+  }
+
   .dark-bg {
-    background-color: #0a090c;
+    background-color: #222222;
     color: #f0edee;
   }
 
   .dark-bg-trans {
-    background-color: #07393cb0;
+    background-color: #07393ce5;
     color: #f0edee;
   }
 
@@ -44,16 +53,16 @@
   }
 
   .accent-bg {
-    background-color: #90ddf0;
-    color: #0a090c;
+    background-color: #ffba48;
+    color: #222222;
   }
 
   .accent-text {
-    color: #90ddf0;
+    color: #ffba48;
   }
 
   .logo-main {
-    width: 160px;
+    width: 280px;
     color: #f0edee;
     font-size: 2rem;
   }
@@ -67,20 +76,25 @@ a:visited {
   header {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 1em;
     background-image: url("../images/building.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    animation: slideshow;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-delay: 10s;
+    animation-iteration-count: infinite;
   }
 
   header #top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     max-width: 1768px;
     flex-wrap: wrap;
     width: calc(100% - 2em);
@@ -95,24 +109,66 @@ a:visited {
     text-align: center;
   }
 
-  header .search {
-    background-color: transparent;
+  header .search-container {
+    margin: 0.5em auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1768px;
+    flex-wrap: wrap;
+    border-radius: 50px;
+    width: 80%;
+  }
+
+  header #icon-search {
+    border: 0;
+    outline: none;
+  }
+
+  header .search-container,
+header .search {
+    background-color: #f0edee;
     border-radius: 25px;
-    padding: 0.5em 1em;
+    padding: 0.25em 1em;
     line-height: 1em;
-    color: #f0edee;
-    width: 50%;
+    color: #07393c;
     border: 2px solid #f0edee;
-    font-size: medium;
+    font-size: 2rem;
     text-align: center;
   }
 
+  header .search {
+    flex-grow: 3;
+  }
+
   header .search::placeholder {
-    color: #f0edee;
+    color: #2c666e;
   }
 
   header .search:focus {
     outline: none;
+  }
+
+  .mail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1768px;
+    flex-wrap: wrap;
+    background-color: #222222;
+  }
+
+  .mail main {
+    padding: 0.5em 2em;
+    background-color: #f0edee;
+    height: 100vh;
+  }
+
+  .mail .signature {
+    margin-top: 4em;
+    font-weight: bold;
   }
 
   nav {
@@ -125,14 +181,15 @@ a:visited {
   }
 
   nav .nav-item {
-    margin: 0.25em 0.5em;
+    margin: 0.5em 0.5em;
     color: #f0edee;
     cursor: pointer;
+    font-family: "Poppins", sans-serif;
   }
 
   nav .nav-item:hover,
 nav .active {
-    border-bottom: 2px solid #90ddf0;
+    border-bottom: 2px solid #ffba48;
     font-weight: bold;
   }
 
@@ -149,10 +206,11 @@ nav .active {
     align-items: flex-start;
     max-width: 1768px;
     flex-wrap: wrap;
-    background-color: #0a090c;
+    background-color: #222222;
     margin: 0 auto;
     padding: 2em 4em;
     color: #f0edee;
+    font-size: small;
   }
 
   footer div.navigation {
@@ -204,6 +262,22 @@ footer a:visited {
     outline: none;
   }
 
+  #cities {
+    border: 0px;
+    text-align: center;
+    text-align-last: center;
+    width: 60%;
+    color: #f0edee;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 3rem;
+  }
+
+  #cities option {
+    text-align: center;
+  }
+
   #booking-button,
 #send-button {
     padding: 0.5em 4em;
@@ -215,7 +289,7 @@ footer a:visited {
 
   #booking-button:hover,
 #send-button:hover {
-    background-color: #90ddf0;
+    background-color: #ffba48;
   }
 
   img.feature {
@@ -278,6 +352,10 @@ footer a:visited {
     padding: 1em 0.5em;
   }
 
+  #s-bookings .form-control::placeholder {
+    color: #f7f2f2;
+  }
+
   #s-bookings .container,
 #s-contacts .container {
     display: flex;
@@ -306,8 +384,8 @@ footer a:visited {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 240px;
-    width: 240px;
+    height: 300px;
+    width: 300px;
     cursor: pointer;
   }
 
@@ -372,6 +450,20 @@ footer a:visited {
     }
     to {
       height: 100%;
+    }
+  }
+  @keyframes slideshow {
+    0% {
+      background-image: url("../images/zebras.jpg");
+    }
+    35% {
+      background-image: url("../images/kilimanjaro.jpg");
+    }
+    70% {
+      background-image: url("../images/lions.jpg");
+    }
+    100% {
+      background-image: url("../images/elephants.jpg");
     }
   }
 }

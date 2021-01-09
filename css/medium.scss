@@ -1,10 +1,10 @@
 @media only screen and (min-width: 769px) and (max-width: 1199px) {
-  $dark: #0a090c;
+  $dark: #222222;
   $bright: #f0edee;
   $primaryDark: #07393c;
-  $primaryDarkTrans: #07393cb0;
+  $primaryDarkTrans: #07393ce5;
   $primary: #2c666e;
-  $accent: #90ddf0;
+  $accent: #ffba48;
   $logoFontSize: 2rem;
   $largeText: 3rem;
   $mediumText: 2rem;
@@ -14,9 +14,11 @@
   $stdMargin: 1em;
   $smallMargin: 0.5em;
   $font: "Montserrat", sans-serif;
+  $specialFont: "Poppins", sans-serif;
   $borderRadius: 25px;
+  $borderRadiusLarge: 50px;
   $maxWidth: 1768px;
-
+  $logoSize: 280px;
   @mixin flex($direction: row, $jc: center, $ai: center) {
     display: flex;
     flex-direction: $direction;
@@ -53,6 +55,14 @@
     text-align: center;
     padding: 1em 0.5em;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h5 {
+    font-family: $specialFont;
+  }
   .dark-bg {
     background-color: $dark;
     color: $bright;
@@ -80,7 +90,7 @@
   }
 
   .logo-main {
-    width: 160px;
+    width: $logoSize;
     color: $bright;
     font-size: $logoFontSize;
   }
@@ -89,16 +99,22 @@
   a:visited {
     text-decoration: none;
   }
+
   header {
-    @include flex(column, flex-start, center);
+    @include flex(column, center, center);
     padding: 1em;
     background-image: url("../images/building.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    animation: slideshow;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-delay: 10s;
+    animation-iteration-count: infinite;
   }
   header #top {
-    @include flex(row, space-between, flex-start);
+    @include flex(row, space-between, center);
     width: calc(100% - 2em);
     position: fixed;
     top: 0;
@@ -109,30 +125,58 @@
     margin-top: $largeMargin;
     text-align: center;
   }
+  header .search-container {
+    margin: $smallMargin auto;
+    @include flex(row, space-between, center);
+    border-radius: $borderRadiusLarge;
+    width: 80%;
+  }
+  header #icon-search {
+    border: 0;
+    outline: none;
+  }
+  header .search-container,
   header .search {
-    background-color: transparent;
+    background-color: $bright;
     border-radius: $borderRadius;
-    padding: 0.5em 1em;
+    padding: 0.25em 1em;
     line-height: 1em;
-    color: $bright;
-    width: 50%;
+    color: $primaryDark;
+    // width: 50%;
     border: 2px solid $bright;
-    font-size: medium;
+    font-size: $mediumText;
     text-align: center;
   }
+  header .search {
+    flex-grow: 3;
+  }
   header .search::placeholder {
-    color: $bright;
+    color: $primary;
   }
   header .search:focus {
     outline: none;
+  }
+  .mail {
+    @include flex(row, space-between, center);
+    background-color: $dark;
+  }
+  .mail main {
+    padding: $smallMargin $mediumMargin;
+    background-color: $bright;
+    height: 100vh;
+  }
+  .mail .signature {
+    margin-top: $largeMargin;
+    font-weight: bold;
   }
   nav {
     @include flex(row, flex-end, flex-start);
   }
   nav .nav-item {
-    margin: 0.25em 0.5em;
+    margin: 0.5em 0.5em;
     color: $bright;
     cursor: pointer;
+    font-family: $specialFont;
   }
   nav .nav-item:hover,
   nav .active {
@@ -150,6 +194,7 @@
     margin: 0 auto;
     padding: $mediumMargin $largeMargin;
     color: $bright;
+    font-size: small;
   }
   footer div.navigation {
     @include flex(column, flex-start, flex-start);
@@ -188,6 +233,21 @@
   .form-control:focus {
     outline: none;
   }
+  #cities {
+    border: 0px;
+    text-align: center;
+    text-align-last: center;
+    width: 60%;
+    color: $bright;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: $largeText;
+  }
+  #cities option {
+    text-align: center;
+  }
+
   #booking-button,
   #send-button {
     padding: $smallMargin $largeMargin;
@@ -244,6 +304,9 @@
     margin: 0 auto;
     padding: 1em 0.5em;
   }
+  #s-bookings .form-control::placeholder {
+    color: rgb(247, 242, 242);
+  }
   #s-bookings .container,
   #s-contacts .container {
     @include flex(row, space-evenly, center);
@@ -260,8 +323,8 @@
   .cards3,
   .cards4 {
     @include flex(column, center, center);
-    height: 240px;
-    width: 240px;
+    height: 300px;
+    width: 300px;
     cursor: pointer;
   }
   .cards1 span,
@@ -307,6 +370,20 @@
     }
     to {
       height: 100%;
+    }
+  }
+  @keyframes slideshow {
+    0% {
+      background-image: url("../images/zebras.jpg");
+    }
+    35% {
+      background-image: url("../images/kilimanjaro.jpg");
+    }
+    70% {
+      background-image: url("../images/lions.jpg");
+    }
+    100% {
+      background-image: url("../images/elephants.jpg");
     }
   }
 }

@@ -59,6 +59,29 @@ class naboishu{
         return $result;  
        }
     }
+    function getBooking($bookingId){
+        $result = array();
+        $sql = "select * from bookings where id=".$bookingId." order by id asc limit 1";
+        $con = $this->mysqli;
+        $query = $con->query($sql);
+        if($query && mysqli_num_rows($query)==1){
+            $booking = mysqli_fetch_assoc($query);
+            $result['code'] = 0;
+            $result['msg'] = "Successful";
+            $result['booking'] = $booking;
+        }
+        else{
+            $result['code'] = 1;
+            $result['msg'] = "Could not find booking";
+        }
+        return $result;
+    }
+    function getCountryName($isoCode){
+        $sql = "select * from countries where isocode='".$isoCode."' limit 1";
+        $con = $this->mysqli;
+        $query = $con->query($sql);
+        
+    }
     function getAllUsers(){
         $users = array();
         $result = array();

@@ -4,7 +4,7 @@
   }
 
   body {
-    color: #0a090c;
+    color: #222222;
     background-color: #f0edee;
     font-family: "Montserrat", sans-serif;
     padding: 0;
@@ -12,12 +12,12 @@
   }
 
   .dark-bg {
-    background-color: #0a090c;
+    background-color: #222222;
     color: #f0edee;
   }
 
   .dark-bg-trans {
-    background-color: #07393cb0;
+    background-color: #07393ce5;
     color: #f0edee;
   }
 
@@ -35,18 +35,16 @@
   }
 
   .accent-bg {
-    background-color: #90ddf0;
-    color: #0a090c;
+    background-color: #ffba48;
+    color: #222222;
   }
 
   .accent-text {
-    color: #90ddf0;
+    color: #ffba48;
   }
 
   .logo-main {
-    width: 160px;
-    color: #f0edee;
-    font-size: 1rem;
+    width: 220px;
   }
 
   a:link,
@@ -68,6 +66,11 @@ a:visited {
     height: 100vh;
     width: 100%;
     overflow-x: hidden;
+    animation: slideshow;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-delay: 10s;
+    animation-iteration-count: infinite;
   }
 
   header #top {
@@ -86,29 +89,74 @@ a:visited {
   }
 
   header .banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     margin-top: 2em;
     text-align: center;
   }
 
-  header .search {
-    background-color: transparent;
+  header .search-container {
+    margin: 0.5em auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 768px;
+    flex-wrap: wrap;
+    border-radius: 50px;
+    width: 100%;
+  }
+
+  header #icon-search {
+    border: 0;
+    outline: none;
+  }
+
+  header .search-container,
+header .search {
+    background-color: #f0edee;
     border-radius: 25px;
-    padding: 0.5em 1em;
+    padding: 0.25em 0.5em;
     line-height: 1em;
-    color: #f0edee;
-    width: calc(100% - 2em);
+    color: #07393c;
     border: 2px solid #f0edee;
-    font-size: medium;
     text-align: center;
   }
 
+  header .search {
+    flex-grow: 1;
+  }
+
   header .search::placeholder {
-    color: #f0edee;
+    color: #2c666e;
   }
 
   header .search:focus {
     outline: none;
+  }
+
+  .mail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 768px;
+    flex-wrap: wrap;
+    background-color: #222222;
+  }
+
+  .mail main {
+    padding: 0.5em 1.5em;
+    background-color: #f0edee;
+    height: 100vh;
+  }
+
+  .mail .signature {
+    margin-top: 2em;
+    font-weight: bold;
   }
 
   nav {
@@ -116,11 +164,11 @@ a:visited {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    background-color: #0a090c;
+    background-color: #222222;
     width: calc(100% + 2em);
     height: 0;
     padding-top: 2em;
-    margin-top: -10em;
+    margin-top: -14em;
     z-index: -9999;
   }
 
@@ -137,10 +185,10 @@ a:visited {
 
   nav .nav-item:hover,
 nav .active {
-    border-bottom: 2px solid #90ddf0;
+    border-bottom: 2px solid #ffba48;
     font-weight: bold;
-    background-color: #90ddf0;
-    color: #0a090c;
+    background-color: #ffba48;
+    color: #222222;
   }
 
   button {
@@ -154,7 +202,7 @@ nav .active {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: #0a090c;
+    background-color: #222222;
     margin: 0 auto;
     padding: 0.5em 1.5em;
     color: #f0edee;
@@ -195,11 +243,17 @@ footer a:visited {
   .form-control, textarea.form-control {
     background-color: transparent;
     border-radius: 25px;
+    border: 1px solid #f0edee;
     padding: 0.5em 1.5em;
     margin: 0.5em;
-    border: 1px solid #f0edee;
-    width: 100%;
-    text-align: center;
+    width: calc(100% - 1em);
+    color: #f0edee;
+    box-sizing: border-box;
+  }
+
+  .form-group label {
+    align-self: flex-start;
+    margin: 0.5em;
   }
 
   textarea.form-control {
@@ -208,6 +262,22 @@ footer a:visited {
 
   .form-control:focus {
     outline: none;
+  }
+
+  #cities {
+    border: 0px;
+    text-align: center;
+    text-align-last: center;
+    width: 80%;
+    color: #f0edee;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 2rem;
+  }
+
+  #cities option {
+    text-align: center;
   }
 
   #booking-button,
@@ -221,11 +291,10 @@ footer a:visited {
 
   #booking-button:hover,
 #send-button:hover {
-    background-color: #90ddf0;
+    background-color: #ffba48;
   }
 
   img.feature {
-    width: 40%;
     display: none;
   }
 
@@ -286,6 +355,10 @@ footer a:visited {
     padding: 1em 0.5em;
   }
 
+  #s-bookings .form-control::placeholder {
+    color: #f7f2f2;
+  }
+
   #s-bookings .container,
 #s-contacts .container {
     display: flex;
@@ -321,7 +394,7 @@ footer a:visited {
     justify-content: center;
     align-items: center;
     height: 200px;
-    width: 200px;
+    width: 50%;
     cursor: pointer;
   }
 
@@ -396,6 +469,20 @@ footer a:visited {
     to {
       height: 160px;
       margin-top: 0em;
+    }
+  }
+  @keyframes slideshow {
+    0% {
+      background-image: url("../images/zebras.jpg");
+    }
+    35% {
+      background-image: url("../images/kilimanjaro.jpg");
+    }
+    70% {
+      background-image: url("../images/lions.jpg");
+    }
+    100% {
+      background-image: url("../images/elephants.jpg");
     }
   }
 }

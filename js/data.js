@@ -40,7 +40,68 @@ const getCountries = () => {
   });
 };
 
+const destinations = [
+  {
+    id: 0,
+    name: "Paris",
+    country: "FR",
+    desription: "description",
+    images: ["paris.jpg", "paris2.jpg"],
+  },
+  {
+    id: 1,
+    name: "Dubai",
+    country: "AE",
+    desription:
+      "Dubai is the most tourist attraction destination in United Arab Emirate",
+    images: ["dubai.jpg", "dubai2.jpg"],
+  },
+  {
+    id: 2,
+    name: "Dar es Salaam",
+    country: "TZ",
+    desription:
+      "Dar es Salaam is by far the largest city and commercial capital of Tanzania, one of the most naturally gifted East African Countries",
+    images: ["dsm.jpg", "dsm2.jpg"],
+  },
+  {
+    id: 3,
+    name: "Madrid",
+    country: "SP",
+    desription:
+      "Madrid is a wonderful city that is prep ready to give you the best holiday or business travel experience",
+    images: ["madrid.jpg", "madrid.jpg"],
+  },
+];
+const loadDestinations = (destinations) => {
+  const destView = document.querySelector("#s-destinations");
+  const loadSpinner = document.querySelector("#load-spinner");
+  const container = document.createElement("div");
+  container.classList.add("container");
+  destinations.forEach((dest) => {
+    const card = document.createElement("div");
+    card.id = dest.id;
+    card.classList.add("cards");
+    card.style.backgroundImage = setCardBackgroundImage(dest.images[0], 0);
+    const span = document.createElement("span");
+    span.textContent = dest.name;
+    card.appendChild(span);
+    container.appendChild(card);
+  });
+  loadSpinner.style.display = "none";
+  destView.appendChild(container);
+};
+
+//set background iamge
+const setCardBackgroundImage = (image, flag = 0) => {
+  let url = "images/" + image;
+  if (flag !== 0) {
+    url = "../../images/" + image;
+  }
+  return "url('" + url + "')";
+};
 window.addEventListener("load", () => {
+  loadDestinations(destinations);
   getCountries().then((countries) => {
     const countriesOrigin = document.querySelector("#origin");
     const countriesDestination = document.querySelector("#destination");

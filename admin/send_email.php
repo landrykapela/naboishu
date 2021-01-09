@@ -23,12 +23,19 @@ $booking_data['travel_date'] = $date;
 $naboishu = new naboishu();
 $booking = $naboishu->createBooking($booking_data);
 if($booking['code'] == 0){
+    $bookingId = $con->insertId;
+    $booking = $naboishu->getBooking($bookingId);
+    $name = $booking['full_name'];
+    $origin = $booking['start_city'].", ".$booking['start_country'];
+    $destination = $booking['destination_city'].", ".$booking['destination_country'];
+    $date = date('d M YYYY',$booking['travel_date']);
+    $email = $booking['email'];
     include('email_template.php');
     $body = $html;
     $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .="From: <noreply@naboishutravel.co.tz" ."\r\n";
-    mail('info@naboishutravel.co.tz','Customer Booking',$body,$headers);
+    mail('reservations@naboishutravel.co.tz','Customer Booking',$body,$headers);
 }
 else{
     echo $booking['msg'];
