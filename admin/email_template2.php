@@ -2,10 +2,10 @@
 $html = '<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Travel Booking</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/medium.css" />
-    <link rel="stylesheet" href="css/mobile.css" />
+    <title>Customer Inquiry</title>
+    <link rel="stylesheet" href="https://naboishutravel.co.tz/css/main.css" />
+    <link rel="stylesheet" href="https://naboishutravel.co.tz/css/medium.css" />
+    <link rel="stylesheet" href="https://naboishutravel.co.tz/css/mobile.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap"
@@ -19,7 +19,7 @@ $html = '<!DOCTYPE html>
   <body class="mail">
     <div class="top">
       <a href="index.html"
-        ><img class="logo-main" src="images/logo-main.png" alt="Naboishu Logo"
+        ><img class="logo-main" src="https://naboishutravel.co.tz/images/logo-main.png" alt="Naboishu Logo"
       /></a>
     </div>
     <main>

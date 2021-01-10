@@ -37,7 +37,7 @@ if($booking['code'] == 0){
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .="From: <noreply@naboishutravel.co.tz" ."\r\n";
     mail('reservations@naboishutravel.co.tz','Customer Booking',$body,$headers);
-    header("location:./index.html");
+    header("location:../index.html");
 }
 else{
     echo $booking['msg'];
