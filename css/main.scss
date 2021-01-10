@@ -345,7 +345,7 @@
   .cards {
     @include flex(column, center, center);
     height: 300px;
-    width: 300px;
+    width: 360px;
     cursor: pointer;
     background-size: cover;
     background-repeat: no-repeat;
@@ -383,6 +383,25 @@
     animation-timing-function: linear;
     animation-fill-mode: forwards;
     // animation: fadeout 0.3s linear 1.5s;
+  }
+  .content {
+    @include flex(row, flex-start, flex-start);
+    padding: $smallMargin $mediumMargin;
+    margin-top: $mediumMargin;
+  }
+  .detail {
+    // @include flex(row, center, flex-start);
+    padding: $smallMargin $mediumMargin;
+    width: 50%;
+  }
+  .detail h4 {
+    text-align: justify;
+    margin-top: -22px;
+    // padding-left: $smallMargin;
+  }
+  .detail p {
+    padding: $smallMargin;
+    text-align: justify;
   }
   @keyframes spin {
     from {

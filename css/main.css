@@ -413,7 +413,7 @@ footer a:visited {
     justify-content: center;
     align-items: center;
     height: 300px;
-    width: 300px;
+    width: 360px;
     cursor: pointer;
     background-size: cover;
     background-repeat: no-repeat;
@@ -455,6 +455,32 @@ footer a:visited {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 1768px;
+    flex-wrap: wrap;
+    padding: 0.5em 2em;
+    margin-top: 2em;
+  }
+
+  .detail {
+    padding: 0.5em 2em;
+    width: 50%;
+  }
+
+  .detail h4 {
+    text-align: justify;
+    margin-top: -22px;
+  }
+
+  .detail p {
+    padding: 0.5em;
+    text-align: justify;
   }
 
   @keyframes spin {
