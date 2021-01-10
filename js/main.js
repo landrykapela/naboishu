@@ -31,11 +31,17 @@ const navigateTo = (destination) => {
   let destinationView = document.getElementById(dest_id);
   if (destinationView) destinationView.scrollIntoView();
   else {
-    console.log("pathname: ", window.location.pathname); ///destinations/africa/
-    let pathname = window.location.pathname;
-    let parts = pathname.split("/");
-    parts[parts.length - 2] = destination;
-    window.location.pathname = parts.join("/");
+    if (destination === "home") {
+      // let host = window.location.pathname;
+      window.location = window.location.href.split(window.location.pathname)[0];
+    } else {
+      console.log("pathname: ", window.location.pathname); ///destinations/africa/
+      let pathname = window.location.pathname;
+      let parts = pathname.split("/");
+      parts[parts.length - 2] = destination;
+      window.location.pathname = parts.join("/");
+      // window.location.hash =
+    }
     // window.location.pathname = "/destinations/" + destination;
   }
   // document.getElementById(activeChild).classList.remove("active");
@@ -44,7 +50,7 @@ const activateMenu = (menu) => {
   Array.from(nav_items).forEach((item) => {
     item.classList.remove("active");
   });
-  menu.classList.add("active");
+  if (menu) menu.classList.add("active");
 };
 const isInViewport = (element) => {
   const rect = element.getBoundingClientRect();

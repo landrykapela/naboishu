@@ -56,12 +56,15 @@
     padding: 1em 0.5em;
   }
   h1,
-  h2,
+  h2 {
+    font-family: $specialFont;
+    font-weight: 400;
+  }
   h3,
   h4,
-  h5,
   h5 {
     font-family: $specialFont;
+    font-weight: 300;
   }
   .dark-bg {
     background-color: $dark;
@@ -156,6 +159,12 @@
   header .search:focus {
     outline: none;
   }
+  header.normal {
+    animation: none;
+    background-color: $dark;
+    background-image: none;
+    height: 100px;
+  }
   .mail {
     @include flex(row, space-between, center);
     background-color: $dark;
@@ -217,6 +226,7 @@
   .form-group {
     @include flex(column, center, flex-start);
     padding: $smallMargin;
+    width: 100%;
   }
   .form-control {
     background-color: transparent;
@@ -224,7 +234,9 @@
     padding: $smallMargin $mediumMargin;
     margin: $smallMargin;
     border: 1px solid $primaryDark;
-    width: 100%;
+    width: calc(100% - 1em);
+    color: $bright;
+    box-sizing: border-box;
   }
   textarea.form-control {
     @extend .form-control;
@@ -312,32 +324,39 @@
     @include flex(row, space-evenly, center);
     padding: $largeMargin $smallMargin;
   }
+  #s-about .container,
+  #s-about2 .container,
+  #s-about3 .container {
+    @include flex(row, space-evenly, space-evenly);
+    padding: $smallMargin $largeMargin;
+  }
+  .slide {
+    // border: 1px solid white;
+    width: 40%;
+    margin-top: $mediumMargin;
+  }
   #s-stories .container {
     @include flex(row, space-evenly, flex-start);
   }
   // .container > div:nth-child(2) {
   //   flex-grow: 3;
   // }
-  .cards1,
-  .cards2,
-  .cards3,
-  .cards4 {
+
+  .cards {
     @include flex(column, center, center);
     height: 300px;
-    width: 300px;
+    width: 360px;
     cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
-  .cards1 span,
-  .cards2 span,
-  .cards3 span,
-  .cards4 span {
+
+  .cards span {
     display: none;
     height: 0;
   }
-  .cards1:hover span,
-  .cards2:hover span,
-  .cards3:hover span,
-  .cards4:hover span {
+
+  .cards:hover span {
     @include flex(column, center, center);
     height: 100%;
     width: 100%;
@@ -352,17 +371,47 @@
     height: 70px;
     margin: $smallMargin;
   }
-  .cards4 {
-    @include setBg("dsm.jpg");
+  #load-spinner {
+    margin: 1em auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-top: 2px solid $accent;
+    animation: spin;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    // animation: fadeout 0.3s linear 1.5s;
   }
-  .cards3 {
-    @include setBg("madrid.jpg");
+  .content {
+    @include flex(row, flex-start, flex-start);
+    padding: $smallMargin $mediumMargin;
+    margin-top: $mediumMargin;
   }
-  .cards1 {
-    @include setBg("paris.jpg");
+  .detail {
+    // @include flex(row, center, flex-start);
+    padding: $smallMargin $mediumMargin;
+    width: 50%;
   }
-  .cards2 {
-    @include setBg("shipcruise.jpg");
+  .detail h4 {
+    text-align: justify;
+    margin-top: -22px;
+    // padding-left: $smallMargin;
+  }
+  .detail p {
+    padding: $smallMargin;
+    text-align: justify;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+      display: block;
+    }
+    to {
+      transform: rotate(360deg);
+      display: none;
+    }
   }
   @keyframes stretchUp {
     from {
@@ -384,6 +433,30 @@
     }
     100% {
       background-image: url("../images/elephants.jpg");
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      display: none;
+      // margin-left: 0;
+    }
+    to {
+      // margin-left: -99999px;
+      opacity: 1;
+      display: flex;
+    }
+  }
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+      display: flex;
+      // margin-left: 0;
+    }
+    to {
+      // margin-left: -99999px;
+      opacity: 0;
+      display: none;
     }
   }
 }

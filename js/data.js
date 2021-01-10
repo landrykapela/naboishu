@@ -143,8 +143,9 @@ const loadDestinations = (destinations, continent) => {
       let id = "detail-" + e.target.parentNode.id;
       console.log("card: ", id);
       if (flag === 0) {
-        window.location.pathname =
-          "/destinations/" + dest.continent + "/#" + id;
+        window.location.hash = null;
+        window.location.pathname = "/destinations/" + dest.continent + "/";
+        window.location.hash = id;
       } else {
         window.location.hash = id;
       }
@@ -153,8 +154,9 @@ const loadDestinations = (destinations, continent) => {
       let id = "detail-" + e.target.parentNode.id;
       console.log("card: ", id);
       if (flag === 0) {
-        window.location.pathname =
-          "/destinations/" + dest.continent + "/#" + id;
+        window.location.href =
+          "/destinations/" + dest.continent.toLowerCase() + "/index.html#" + id;
+        // window.location.hash = id;
       } else {
         window.location.hash = id;
       }

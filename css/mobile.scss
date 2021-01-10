@@ -49,7 +49,17 @@
     padding: 0;
     margin: 0 auto;
   }
-
+  h1,
+  h2 {
+    font-family: $specialFont;
+    font-weight: 400;
+  }
+  h3,
+  h4,
+  h5 {
+    font-family: $specialFont;
+    font-weight: 300;
+  }
   .dark-bg {
     background-color: $dark;
     color: $bright;
@@ -78,24 +88,22 @@
 
   .logo-main {
     width: $logoSize;
-    // color: $bright;
-    // font-size: $logoFontSize;
+    color: $bright;
+    font-size: $logoFontSize;
   }
   a:link,
   a:hover,
   a:visited {
     text-decoration: none;
   }
+
   header {
     @include flex(column, center, center);
-    padding: 0;
-    margin: 0;
+    padding: 1em;
     background-image: url("../images/building.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
     animation: slideshow;
     animation-duration: 40s;
     animation-timing-function: linear;
@@ -104,24 +112,20 @@
   }
   header #top {
     @include flex(row, space-between, center);
-    // width: calc(100% - 2em);
+    width: calc(100% - 2em);
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
     padding: 1em;
   }
   header .banner {
-    @include flex(column, center, center);
-    width: 80%;
+    width: 100%;
     margin-top: $largeMargin;
     text-align: center;
   }
   header .search-container {
     margin: $smallMargin auto;
-    @include flex(row, space-between, center);
-    border-radius: $borderRadiusLarge;
+    @include flex(row, center, center);
+    border-radius: $borderRadius;
     width: 100%;
   }
   header #icon-search {
@@ -132,7 +136,7 @@
   header .search {
     background-color: $bright;
     border-radius: $borderRadius;
-    padding: 0.25em 0.5em;
+    padding: 0.25em;
     line-height: 1em;
     color: $primaryDark;
     // width: 50%;
@@ -140,14 +144,18 @@
     // font-size: $mediumText;
     text-align: center;
   }
-  header .search {
-    flex-grow: 1;
-  }
+
   header .search::placeholder {
     color: $primary;
   }
   header .search:focus {
     outline: none;
+  }
+  header.normal {
+    animation: none;
+    background-color: $dark;
+    background-image: none;
+    height: 100px;
   }
   .mail {
     @include flex(row, space-between, center);
@@ -175,17 +183,18 @@
     animation: stretchDown 0.3s linear forwards;
   }
   nav .nav-item {
-    padding: 0.5em 0.75em;
+    margin: 0.5em 0;
+    padding: 0.25em 0.5em;
+    width: calc(100% - 1em);
     color: $bright;
     cursor: pointer;
-    width: calc(100% - 1.5em);
+    font-family: $specialFont;
   }
   nav .nav-item:hover,
-  nav .active {
-    border-bottom: 2px solid $accent;
-    font-weight: bold;
+  nav .nav-item.active {
+    // border-bottom: 2px solid $accent;
+    // font-weight: bold;
     background-color: $accent;
-    color: $dark;
   }
   button {
     border-radius: $borderRadius;
@@ -193,11 +202,12 @@
     cursor: pointer;
   }
   footer {
-    @include flex(column, flex-start, flex-start);
+    @include flex(column, space-evenly, flex-start);
     background-color: $dark;
     margin: 0 auto;
-    padding: $smallMargin $mediumMargin;
+    padding: $mediumMargin $largeMargin;
     color: $bright;
+    font-size: small;
   }
   footer div.navigation {
     @include flex(column, flex-start, flex-start);
@@ -213,31 +223,27 @@
   }
   #s-bookings {
     background-color: $primary;
-    padding: $largeMargin $smallMargin;
+    padding: $largeMargin;
     color: $bright;
   }
-
+  section {
+    text-align: center;
+  }
   .form-group {
-    @include flex(column, center, center);
+    @include flex(column, center, flex-start);
     padding: $smallMargin;
-    // border: 2px solid $accent;
+    width: 100%;
   }
   .form-control {
     background-color: transparent;
     border-radius: $borderRadius;
-    border: 1px solid $bright;
     padding: $smallMargin $mediumMargin;
     margin: $smallMargin;
+    border: 1px solid $primaryDark;
     width: calc(100% - 1em);
     color: $bright;
     box-sizing: border-box;
   }
-  .form-group label {
-    align-self: flex-start;
-    // padding: 0 $mediumMargin;
-    margin: $smallMargin;
-  }
-
   textarea.form-control {
     @extend .form-control;
     border-radius: 2px;
@@ -249,7 +255,7 @@
     border: 0px;
     text-align: center;
     text-align-last: center;
-    width: 80%;
+    width: 60%;
     color: $bright;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -277,7 +283,7 @@
   //   border: 2px solid $primaryDark;
   // }
   img.feature {
-    display: none;
+    width: 40%;
   }
   .large-text {
     font-size: $largeText;
@@ -289,7 +295,7 @@
     font-size: $smallText;
   }
   .stories {
-    @include flex(row, center, center);
+    @include flex(column, center, center);
     margin-bottom: $smallMargin;
   }
   .stories > div {
@@ -300,13 +306,12 @@
   }
   .stories div > p:nth-child(2) {
     font-weight: bold;
-    font-size: small;
   }
   .cookie-notification {
     position: fixed;
     bottom: 0;
     height: 0;
-    max-height: 200px;
+    max-height: 160px;
     width: calc(100% - 1em);
     text-align: center;
     padding: 1em 0.5em;
@@ -325,6 +330,17 @@
     @include flex(row, space-evenly, center);
     padding: $largeMargin $smallMargin;
   }
+  #s-about .container,
+  #s-about2 .container,
+  #s-about3 .container {
+    @include flex(row, space-evenly, space-evenly);
+    padding: $smallMargin $largeMargin;
+  }
+  .slide {
+    // border: 1px solid white;
+    width: 80%;
+    margin-top: $mediumMargin;
+  }
   #s-stories .container {
     @include flex(row, space-evenly, flex-start);
   }
@@ -332,31 +348,21 @@
   //   flex-grow: 3;
   // }
 
-  section {
-    text-align: center;
-    padding: 1em 0.5em;
-    width: calc(100% - 1em);
-  }
-  .cards1,
-  .cards2,
-  .cards3,
-  .cards4 {
+  .cards {
     @include flex(column, center, center);
-    height: 200px;
-    width: 50%;
+    height: 300px;
+    width: 360px;
     cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
-  .cards1 span,
-  .cards2 span,
-  .cards3 span,
-  .cards4 span {
+
+  .cards span {
     display: none;
     height: 0;
   }
-  .cards1:hover span,
-  .cards2:hover span,
-  .cards3:hover span,
-  .cards4:hover span {
+
+  .cards:hover span {
     @include flex(column, center, center);
     height: 100%;
     width: 100%;
@@ -367,21 +373,79 @@
   }
   .avatar {
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 70px;
+    height: 70px;
     margin: $smallMargin;
   }
-  .cards4 {
-    @include setBg("dsm.jpg");
+  #load-spinner {
+    margin: 1em auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-top: 2px solid $accent;
+    animation: spin;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    // animation: fadeout 0.3s linear 1.5s;
   }
-  .cards3 {
-    @include setBg("madrid.jpg");
+  .content {
+    @include flex(column, flex-start, flex-start);
+    padding: $smallMargin $mediumMargin;
+    margin-top: $mediumMargin;
   }
-  .cards1 {
-    @include setBg("paris.jpg");
+  .content .feature {
+    width: 90%;
   }
-  .cards2 {
-    @include setBg("shipcruise.jpg");
+  .detail {
+    // @include flex(row, center, flex-start);
+    padding: $smallMargin;
+    // width: 50%;
+  }
+  .detail h4 {
+    text-align: justify;
+    // margin-top: -22px;
+    // padding-left: $smallMargin;
+  }
+  .detail p {
+    padding: $smallMargin;
+    text-align: justify;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+      display: block;
+    }
+    to {
+      transform: rotate(360deg);
+      display: none;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      display: none;
+      // margin-left: 0;
+    }
+    to {
+      // margin-left: -99999px;
+      opacity: 1;
+      display: flex;
+    }
+  }
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+      display: flex;
+      // margin-left: 0;
+    }
+    to {
+      // margin-left: -99999px;
+      opacity: 0;
+      display: none;
+    }
   }
   @keyframes stretchUp {
     from {
@@ -397,7 +461,7 @@
       margin-top: -10em;
     }
     to {
-      height: 160px;
+      height: auto;
       margin-top: 0em;
     }
   }
