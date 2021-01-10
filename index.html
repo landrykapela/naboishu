@@ -203,7 +203,7 @@
           <div class="form-group">
             <input
               type="submit"
-              name="booking-button"
+              name="send_booking"
               id="booking-button"
               value="Book Now"
             />
@@ -249,7 +249,7 @@
     <section id="s-contacts" class="dark-bg">
       <h2 class="large-text">Talk to our best customer care reps</h2>
       <div class="container">
-        <form id="contact-form">
+        <form id="contact-form" action="admin/send_email.php" method="POST">
           <div class="form-group">
             <!-- <label>Where are you travelling from?</label> -->
             <input
@@ -282,7 +282,7 @@
           <div class="form-group">
             <input
               type="submit"
-              name="send-button"
+              name="send_inquiry"
               id="send-button"
               value="Send"
             />

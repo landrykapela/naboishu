@@ -2,6 +2,7 @@
 
 ini_set("display_errors",1);
 require_once('naboishu_api.php');
+if(isset($_POST['send_booking'])){
 $date = strtotime(htmlentities($_POST['travel_date'],ENT_QUOTES,'UTF-8'));
 $name = htmlentities($_POST['full_name'],ENT_QUOTES,'UTF-8');
 $email = filter_var(htmlentities($_POST['email'],ENT_QUOTES,'UTF-8'),FILTER_SANITIZE_EMAIL);
@@ -36,8 +37,32 @@ if($booking['code'] == 0){
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .="From: <noreply@naboishutravel.co.tz" ."\r\n";
     mail('reservations@naboishutravel.co.tz','Customer Booking',$body,$headers);
+    header("location:./index.html");
 }
 else{
     echo $booking['msg'];
+}
+}
+else if(isset($_POST['send_inquiry'])){
+    $name = htmlentities($_POST['name'],ENT_QUOTES,'UTF-8');
+$email = filter_var(htmlentities($_POST['email'],ENT_QUOTES,'UTF-8'),FILTER_SANITIZE_EMAIL);
+$message = htmlentities($_POST['message'],ENT_QUOTES,'UTF-8');
+ include('email_template2.php');
+    $body = $html;
+    $headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .="From: <noreply@naboishutravel.co.tz" ."\r\n";
+//send receipt message to customer
+    mail($email,'Customer Inquiry',$body,$headers);
+     include('email_template3.php');
+    $body = $html;
+    $headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .="From: <noreply@naboishutravel.co.tz" ."\r\n";
+    mail('info@naboishutravel.co.tz','Customer Inquiry',$body,$headers);
+    header("location:./index.html");
+}
+else{
+    header("location:./index.html");
 }
 ?>
