@@ -1,11 +1,45 @@
+console.log("cookie status: " + navigator.cookieEnabled);
 //dismiss cookie notification
 const dismissCookie = document.getElementById("dismiss-cookie-notification");
-if (dismissCookie) {
-  dismissCookie.addEventListener("click", (e) => {
-    let parent = e.target.parentNode;
-    parent.style.display = "none";
-  });
+const cookieNotification = document.getElementById("cookie-notification");
+if (!navigator.cookieEnabled) {
+  // if (cookieNotification) {
+  cookieNotification.classList.remove("hidden");
+  cookieNotification.classList.add("cookie-notification");
+  if (dismissCookie) {
+    dismissCookie.addEventListener("click", (e) => {
+      let parent = e.target.parentNode;
+      parent.style.display = "none";
+      // alert("Cookie status: " + navigator.cookieEnabled);
+      saveCookies();
+    });
+  }
+  // } else console.log("no cookie notification");
 }
+
+//save cookies
+const saveCookies = () => {
+  navigator.cookieEnabled = true;
+  document.cookie = "username=Landry;";
+  alert("Thank you " + getCookie("username"));
+};
+
+//get cookies
+const getCookie = (cname) => {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+};
 
 //sections
 const sections = document.getElementsByTagName("section");

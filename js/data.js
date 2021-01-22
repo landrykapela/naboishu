@@ -25,7 +25,6 @@ const getCountries = () => {
     fetch(country_api)
       .then((res) => res.json())
       .then((countries) => {
-        console.log("countries: ", countries);
         let sortedCountries = countries.sort((c1, c2) => {
           if (c1.nameCity < c2.nameCity) return -1;
           if (c1.nameCity > c2.nameCity) return 1;

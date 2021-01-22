@@ -283,6 +283,7 @@
   //   border: 2px solid $primaryDark;
   // }
   img.feature {
+    display: none;
     width: 40%;
   }
   .large-text {
@@ -352,6 +353,7 @@
     @include flex(column, center, center);
     height: 300px;
     width: 360px;
+    margin-top: 0.5em;
     cursor: pointer;
     background-size: cover;
     background-repeat: no-repeat;

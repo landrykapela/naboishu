@@ -304,6 +304,7 @@ footer a:visited {
   }
 
   img.feature {
+    display: none;
     width: 40%;
   }
 
@@ -409,6 +410,7 @@ footer a:visited {
     align-items: center;
     height: 300px;
     width: 360px;
+    margin-top: 0.5em;
     cursor: pointer;
     background-size: cover;
     background-repeat: no-repeat;

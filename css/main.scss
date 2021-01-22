@@ -301,6 +301,9 @@
   .stories div > p:nth-child(2) {
     font-weight: bold;
   }
+  .hidden {
+    display: none;
+  }
   .cookie-notification {
     position: fixed;
     bottom: 0;
@@ -329,6 +332,9 @@
   #s-about3 .container {
     @include flex(row, space-evenly, space-evenly);
     padding: $smallMargin $largeMargin;
+  }
+  #slider > div p {
+    text-align: justify;
   }
   .slide {
     // border: 1px solid white;

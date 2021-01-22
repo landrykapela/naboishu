@@ -18,7 +18,7 @@ $html = '<!DOCTYPE html>
   </head>
   <body class="mail">
     <div class="top">
-      <a href="index.html"
+      <a href="https://naboishutravel.co.tz/index.html"
         ><img class="logo-main" src="https://naboishutravel.co.tz/images/logo-main.png" alt="Naboishu Logo"
       /></a>
     </div>

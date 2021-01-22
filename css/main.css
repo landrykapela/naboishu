@@ -344,6 +344,10 @@ footer a:visited {
     font-weight: bold;
   }
 
+  .hidden {
+    display: none;
+  }
+
   .cookie-notification {
     position: fixed;
     bottom: 0;
@@ -391,6 +395,10 @@ footer a:visited {
     max-width: 1768px;
     flex-wrap: wrap;
     padding: 0.5em 4em;
+  }
+
+  #slider > div p {
+    text-align: justify;
   }
 
   .slide {
