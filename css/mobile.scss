@@ -20,6 +20,16 @@
   $maxWidth: 768px;
   $logoSize: 220px;
 
+  @mixin shadow(
+    $h-offset: 5px,
+    $v-offset: 10px,
+    $blur: 3px,
+    $spread: 3px,
+    $color: $dark,
+    $inset: inherit
+  ) {
+    box-shadow: $h-offset $v-offset $blur $spread $color $inset;
+  }
   @mixin flex($direction: row, $jc: center, $ai: center) {
     display: flex;
     flex-direction: $direction;
@@ -337,6 +347,19 @@
     @include flex(row, space-evenly, space-evenly);
     padding: $smallMargin $largeMargin;
   }
+  #s-about .container > div:nth-child(2) {
+    @include flex(row, space-between, flex-start);
+    // border: 1px solid red;
+    width: 90%;
+    text-align: center;
+  }
+  #s-about .container > div:nth-child(2) .vision {
+    @include flex(column, center, center);
+    @include shadow(5px, 10px, 3px, 3px, inherit);
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
   .slide {
     // border: 1px solid white;
     width: 80%;
@@ -413,6 +436,19 @@
   .detail p {
     padding: $smallMargin;
     text-align: justify;
+  }
+
+  .thumbnail {
+    width: 180px;
+    object-fit: contain;
+  }
+  .icon {
+    width: 80px;
+    object-fit: cover;
+    border: 1px solid $primary;
+    margin: 2em auto;
+    padding: 0.25em;
+    border-radius: 50%;
   }
   @keyframes spin {
     from {

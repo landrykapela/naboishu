@@ -19,6 +19,17 @@
   $borderRadiusLarge: 50px;
   $maxWidth: 1768px;
   $logoSize: 280px;
+
+  @mixin shadow(
+    $h-offset: 5px,
+    $v-offset: 10px,
+    $blur: 3px,
+    $spread: 3px,
+    $color: $dark,
+    $inset: inherit
+  ) {
+    box-shadow: $h-offset $v-offset $blur $spread $color $inset;
+  }
   @mixin flex($direction: row, $jc: center, $ai: center) {
     display: flex;
     flex-direction: $direction;
@@ -333,13 +344,33 @@
     @include flex(row, space-evenly, space-evenly);
     padding: $smallMargin $largeMargin;
   }
-  #slider > div p {
+  #s-about2 .container {
+    @include flex(row, center, center);
+  }
+  #s-about .container > div:nth-child(1) {
+    width: 80%;
+    color: $primaryDark;
     text-align: justify;
+    font-style: italic;
+  }
+  #s-about .container > div:nth-child(2) {
+    @include flex(row, space-between, flex-start);
+    // border: 1px solid red;
+    width: 90%;
+    text-align: center;
+  }
+  #s-about .container > div:nth-child(2) .vision {
+    @include flex(column, center, center);
+    width: 300px;
+    text-align: center;
   }
   .slide {
-    // border: 1px solid white;
-    width: 40%;
-    margin-top: $mediumMargin;
+    width: 30%;
+    padding-top: 1em;
+    margin: $mediumMargin auto;
+    background-color: $bright;
+    height: 300px;
+    @include shadow(5px, 10px, 3px, 5px, $dark, initial);
   }
   #s-stories .container {
     @include flex(row, space-evenly, flex-start);
@@ -409,6 +440,19 @@
     padding: $smallMargin;
     text-align: justify;
   }
+
+  .thumbnail {
+    width: 180px;
+    object-fit: contain;
+  }
+  .icon {
+    width: 80px;
+    object-fit: cover;
+    border: 1px solid $primary;
+    margin: 2em auto;
+    padding: 0.25em;
+    border-radius: 50%;
+  }
   @keyframes spin {
     from {
       transform: rotate(0deg);
@@ -429,7 +473,7 @@
   }
   @keyframes slideshow {
     0% {
-      background-image: url("../images/zebras.jpg");
+      background-image: url("../images/elephants.jpg");
     }
     35% {
       background-image: url("../images/kilimanjaro.jpg");
@@ -438,7 +482,7 @@
       background-image: url("../images/lions.jpg");
     }
     100% {
-      background-image: url("../images/elephants.jpg");
+      background-image: url("../images/zebras.jpg");
     }
   }
   @keyframes fadein {

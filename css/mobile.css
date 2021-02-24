@@ -389,6 +389,28 @@ footer a:visited {
     padding: 0.5em 2em;
   }
 
+  #s-about .container > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 768px;
+    flex-wrap: wrap;
+    width: 90%;
+    text-align: center;
+  }
+
+  #s-about .container > div:nth-child(2) .vision {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 10px 3px 3px inherit inherit;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .slide {
     width: 80%;
     margin-top: 1.5em;
@@ -478,6 +500,20 @@ footer a:visited {
   .detail p {
     padding: 0.5em;
     text-align: justify;
+  }
+
+  .thumbnail {
+    width: 180px;
+    object-fit: contain;
+  }
+
+  .icon {
+    width: 80px;
+    object-fit: cover;
+    border: 1px solid #2c666e;
+    margin: 2em auto;
+    padding: 0.25em;
+    border-radius: 50%;
   }
 
   @keyframes spin {

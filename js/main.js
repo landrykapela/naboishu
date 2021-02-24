@@ -125,6 +125,7 @@ window.addEventListener("scroll", () => {
     top.classList.add("dark-bg-trans");
   } else {
     top.classList.remove("dark-bg-trans");
+    activateMenu(document.querySelector("#home"));
   }
   if (!window.location.pathname.includes("destinations")) {
     Array.from(sections).forEach((section) => {
