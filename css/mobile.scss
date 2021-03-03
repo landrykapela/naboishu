@@ -1,0 +1,520 @@
+@media only screen and (max-width: 768px) {
+  $dark: #222222;
+  $bright: #f0edee;
+  $primaryDark: #07393c;
+  $primaryDarkTrans: #07393ce5;
+  $primary: #2c666e;
+  $accent: #ffba48;
+  $logoFontSize: 1rem;
+  $largeText: 2rem;
+  $mediumText: 1.5rem;
+  $smallText: 0.75rem;
+  $largeMargin: 2em;
+  $mediumMargin: 1.5em;
+  $stdMargin: 1em;
+  $smallMargin: 0.5em;
+  $font: "Montserrat", sans-serif;
+  $specialFont: "Poppins", sans-serif;
+  $borderRadius: 25px;
+  $borderRadiusLarge: 50px;
+  $maxWidth: 768px;
+  $logoSize: 220px;
+
+  @mixin shadow(
+    $h-offset: 5px,
+    $v-offset: 10px,
+    $blur: 3px,
+    $spread: 3px,
+    $color: $dark,
+    $inset: inherit
+  ) {
+    box-shadow: $h-offset $v-offset $blur $spread $color $inset;
+  }
+  @mixin flex($direction: row, $jc: center, $ai: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jc;
+    align-items: $ai;
+    @if $direction == row {
+      max-width: $maxWidth;
+      flex-wrap: wrap;
+    }
+  }
+  @mixin setBg($resource: "building.jpg") {
+    background-image: url("../images/" + $resource);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  @mixin stretchUp($height: 100px) {
+    height: $height;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    color: $dark;
+    background-color: $bright;
+    font-family: $font;
+    padding: 0;
+    margin: 0 auto;
+  }
+  h1,
+  h2 {
+    font-family: $specialFont;
+    font-weight: 400;
+  }
+  h3,
+  h4,
+  h5 {
+    font-family: $specialFont;
+    font-weight: 300;
+  }
+  .dark-bg {
+    background-color: $dark;
+    color: $bright;
+  }
+  .dark-bg-trans {
+    background-color: $primaryDarkTrans;
+    color: $bright;
+  }
+  .bright-bg {
+    background-color: $bright;
+    color: $primaryDark;
+  }
+  .primary-text {
+    color: $primaryDark;
+  }
+  .bright-text {
+    color: $bright;
+  }
+  .accent-bg {
+    background-color: $accent;
+    color: $dark;
+  }
+  .accent-text {
+    color: $accent;
+  }
+
+  .logo-main {
+    width: $logoSize;
+    color: $bright;
+    font-size: $logoFontSize;
+  }
+  a:link,
+  a:hover,
+  a:visited {
+    text-decoration: none;
+  }
+
+  header {
+    @include flex(column, center, center);
+    padding: 1em;
+    background-image: url("../images/building.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    animation: slideshow;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-delay: 10s;
+    animation-iteration-count: infinite;
+  }
+  header #top {
+    @include flex(row, space-between, center);
+    width: calc(100% - 2em);
+    position: fixed;
+    top: 0;
+    padding: 1em;
+  }
+  header .banner {
+    width: 100%;
+    margin-top: $largeMargin;
+    text-align: center;
+  }
+  header .search-container {
+    margin: $smallMargin auto;
+    @include flex(row, center, center);
+    border-radius: $borderRadius;
+    width: 100%;
+  }
+  header #icon-search {
+    border: 0;
+    outline: none;
+  }
+  header .search-container,
+  header .search {
+    background-color: $bright;
+    border-radius: $borderRadius;
+    padding: 0.25em;
+    line-height: 1em;
+    color: $primaryDark;
+    // width: 50%;
+    border: 2px solid $bright;
+    // font-size: $mediumText;
+    text-align: center;
+  }
+
+  header .search::placeholder {
+    color: $primary;
+  }
+  header .search:focus {
+    outline: none;
+  }
+  header.normal {
+    animation: none;
+    background-color: $dark;
+    background-image: none;
+    height: 100px;
+  }
+  .mail {
+    @include flex(row, space-between, center);
+    background-color: $dark;
+  }
+  .mail main {
+    padding: $smallMargin $mediumMargin;
+    background-color: $bright;
+    height: 100vh;
+  }
+  .mail .signature {
+    margin-top: $largeMargin;
+    font-weight: bold;
+  }
+  nav {
+    @include flex(column, flex-end, flex-start);
+    background-color: $dark;
+    width: calc(100% + 2em);
+    height: 0;
+    padding-top: 2em;
+    margin-top: -14em;
+    z-index: -9999;
+  }
+  nav.stretchable {
+    animation: stretchDown 0.3s linear forwards;
+  }
+  nav .nav-item {
+    margin: 0.5em 0;
+    padding: 0.25em 0.5em;
+    width: calc(100% - 1em);
+    color: $bright;
+    cursor: pointer;
+    font-family: $specialFont;
+  }
+  nav .nav-item:hover,
+  nav .nav-item.active {
+    // border-bottom: 2px solid $accent;
+    // font-weight: bold;
+    background-color: $accent;
+  }
+  button {
+    border-radius: $borderRadius;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  footer {
+    @include flex(column, space-evenly, flex-start);
+    background-color: $dark;
+    margin: 0 auto;
+    padding: $mediumMargin $largeMargin;
+    color: $bright;
+    font-size: small;
+  }
+  footer div.navigation {
+    @include flex(column, flex-start, flex-start);
+  }
+  footer a:link,
+  footer a:active,
+  footer a:visited {
+    color: $bright;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  #s-bookings {
+    background-color: $primary;
+    padding: $largeMargin;
+    color: $bright;
+  }
+  section {
+    text-align: center;
+  }
+  .form-group {
+    @include flex(column, center, flex-start);
+    padding: $smallMargin;
+    width: 100%;
+  }
+  .form-control {
+    background-color: transparent;
+    border-radius: $borderRadius;
+    padding: $smallMargin $mediumMargin;
+    margin: $smallMargin;
+    border: 1px solid $primaryDark;
+    width: calc(100% - 1em);
+    color: $bright;
+    box-sizing: border-box;
+  }
+  textarea.form-control {
+    @extend .form-control;
+    border-radius: 2px;
+  }
+  .form-control:focus {
+    outline: none;
+  }
+  #cities {
+    border: 0px;
+    text-align: center;
+    text-align-last: center;
+    width: 60%;
+    color: $bright;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: $largeText;
+  }
+  #cities option {
+    text-align: center;
+  }
+
+  #booking-button,
+  #send-button {
+    padding: $smallMargin $largeMargin;
+    border-radius: $borderRadius;
+    background-color: $bright;
+    border: 0px solid $primary;
+    cursor: pointer;
+  }
+  #booking-button:hover,
+  #send-button:hover {
+    background-color: $accent;
+  }
+  // #send-button:hover {
+  //   background-color: $primary;
+  //   border: 2px solid $primaryDark;
+  // }
+  img.feature {
+    display: none;
+    width: 40%;
+  }
+  .large-text {
+    font-size: $largeText;
+  }
+  .medium-text {
+    font-size: $mediumText;
+  }
+  .small-text {
+    font-size: $smallText;
+  }
+  .stories {
+    @include flex(column, center, center);
+    margin-bottom: $smallMargin;
+  }
+  .stories > div {
+    text-align: center;
+  }
+  .stories div > p:nth-child(1) {
+    font-style: italic;
+  }
+  .stories div > p:nth-child(2) {
+    font-weight: bold;
+  }
+  .cookie-notification {
+    position: fixed;
+    bottom: 0;
+    height: 0;
+    max-height: 160px;
+    width: calc(100% - 1em);
+    text-align: center;
+    padding: 1em 0.5em;
+    animation: stretchUp 0.3s linear 2s 1 forwards;
+  }
+  .container {
+    @include flex(row, center, stretch);
+    margin: 0 auto;
+    padding: 1em 0.5em;
+  }
+  #s-bookings .form-control::placeholder {
+    color: rgb(247, 242, 242);
+  }
+  #s-bookings .container,
+  #s-contacts .container {
+    @include flex(row, space-evenly, center);
+    padding: $largeMargin $smallMargin;
+  }
+  #s-about .container,
+  #s-about2 .container,
+  #s-about3 .container {
+    @include flex(row, space-evenly, space-evenly);
+    padding: $smallMargin $largeMargin;
+  }
+  #s-about .container > div:nth-child(2) {
+    @include flex(row, space-between, flex-start);
+    // border: 1px solid red;
+    width: 90%;
+    text-align: center;
+  }
+  #s-about .container > div:nth-child(2) .vision {
+    @include flex(column, center, center);
+    @include shadow(5px, 10px, 3px, 3px, inherit);
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .slide {
+    // border: 1px solid white;
+    width: 80%;
+    margin-top: $mediumMargin;
+  }
+  #s-stories .container {
+    @include flex(row, space-evenly, flex-start);
+  }
+  // .container > div:nth-child(2) {
+  //   flex-grow: 3;
+  // }
+
+  .cards {
+    @include flex(column, center, center);
+    height: 300px;
+    width: 360px;
+    margin-top: 0.5em;
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .cards span {
+    display: none;
+    height: 0;
+  }
+
+  .cards:hover span {
+    @include flex(column, center, center);
+    height: 100%;
+    width: 100%;
+    background-color: #050505b9;
+    animation: stretchUp 0.3s linear 0s 1;
+    font-size: large;
+    color: $bright;
+  }
+  .avatar {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin: $smallMargin;
+  }
+  #load-spinner {
+    margin: 1em auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-top: 2px solid $accent;
+    animation: spin;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    // animation: fadeout 0.3s linear 1.5s;
+  }
+  .content {
+    @include flex(column, flex-start, flex-start);
+    padding: $smallMargin $mediumMargin;
+    margin-top: $mediumMargin;
+  }
+  .content .feature {
+    width: 90%;
+  }
+  .detail {
+    // @include flex(row, center, flex-start);
+    padding: $smallMargin;
+    // width: 50%;
+  }
+  .detail h4 {
+    text-align: justify;
+    // margin-top: -22px;
+    // padding-left: $smallMargin;
+  }
+  .detail p {
+    padding: $smallMargin;
+    text-align: justify;
+  }
+
+  .thumbnail {
+    width: 180px;
+    object-fit: contain;
+  }
+  .icon {
+    width: 80px;
+    object-fit: cover;
+    border: 1px solid $primary;
+    margin: 2em auto;
+    padding: 0.25em;
+    border-radius: 50%;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+      display: block;
+    }
+    to {
+      transform: rotate(360deg);
+      display: none;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      display: none;
+      // margin-left: 0;
+    }
+    to {
+      // margin-left: -99999px;
+      opacity: 1;
+      display: flex;
+    }
+  }
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+      display: flex;
+      // margin-left: 0;
+    }
+    to {
+      // margin-left: -99999px;
+      opacity: 0;
+      display: none;
+    }
+  }
+  @keyframes stretchUp {
+    from {
+      height: 0;
+    }
+    to {
+      height: 100%;
+    }
+  }
+  @keyframes stretchDown {
+    from {
+      height: 0;
+      margin-top: -10em;
+    }
+    to {
+      height: auto;
+      margin-top: 0em;
+    }
+  }
+  @keyframes slideshow {
+    0% {
+      background-image: url("../images/zebras.jpg");
+    }
+    35% {
+      background-image: url("../images/kilimanjaro.jpg");
+    }
+    70% {
+      background-image: url("../images/lions.jpg");
+    }
+    100% {
+      background-image: url("../images/elephants.jpg");
+    }
+  }
+}
